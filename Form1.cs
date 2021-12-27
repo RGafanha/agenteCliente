@@ -19,13 +19,19 @@ namespace tablet
             bool verificar = false;
             var nome = Environment.MachineName;
             string query = "INSERT INTO alerta(`TT`,`status`,`relatorio`, `usuario`) VALUES (@nome,'1','','')";
-            string MySQLConnectionString = "datasource=192.168.2.111;port=3306;username=tecon;password=senhadobanco;database=tcrg;Connect Timeout=2";
+
+            //------CONFIGURAÇÃO PARA CONECTAR AO BANCO DE DADOS----- //
+
+            string MySQLConnectionString = "datasource=ipdobancodedados;port=3306;username=usuariobancodedados;password=senhadobanco;database=bancodedados;Connect Timeout=2";
 
             MySqlConnection databaseConnection = new MySqlConnection(MySQLConnectionString);
 
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
             commandDatabase.Parameters.AddWithValue("@nome", nome);
             commandDatabase.CommandTimeout = 2;
+
+
+            //-----------CONFIGURAÇÃO DE TIMEOUT-----------//
 
             for (int i = 0; i < 10; i++)
             {
