@@ -19,7 +19,7 @@ namespace tablet
             bool verificar = false;
             var nome = Environment.MachineName;
             string query = "INSERT INTO alerta(`TT`,`status`,`relatorio`, `usuario`) VALUES (@nome,'1','','')";
-            string MySQLConnectionString = "datasource=192.168.2.111;port=3306;username=tecon;password=tecon123@;database=tcrg;Connect Timeout=2";
+            string MySQLConnectionString = "datasource=192.168.2.111;port=3306;username=tecon;password=senhadobanco;database=tcrg;Connect Timeout=2";
 
             MySqlConnection databaseConnection = new MySqlConnection(MySQLConnectionString);
 
